@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -20,17 +21,17 @@ export default function Home() {
   const handleChatbot = (e) => {
     e.preventDefault();
     window.openChatbot();
-    window.SendDataToChatbot({ threadId: threadId, bridgeName: "sales-assessment" });
+    window.SendDataToChatbot({ threadId: threadId, bridgeName: "sales-assessment", variables: {"userId": threadId} });
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-5">
       <div className="bg-white">
         <header className="absolute inset-x-0 top-0 z-50">
           <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div className="flex lg:flex-1">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt=""/>
+                <img className="h-16 w-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFTEGzzyUrXXQthGJjEvd0qD22XfKrNxE8JA&s" alt="" />
               </a>
             </div>
             <div className="flex lg:hidden">
@@ -45,7 +46,7 @@ export default function Home() {
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Product</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Features</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Company</a>
+              <a href="https://walkover.in/" target="_blank" className="text-sm font-semibold leading-6 text-gray-900">Company</a>
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
@@ -90,12 +91,12 @@ export default function Home() {
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                Announcing our next round of funding. <a href="#" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+                Announcing our new product <a href="https://viasocket.com/" target="_blank" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Viasocket<span aria-hidden="true">&rarr;</span></a>
               </div>
             </div>
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Welcome from Walkover</h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">We're ready to take some points from your knowledge</p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">We're ready to take some sales points from your knowledge</p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a href="#" onClick={handleChatbot} className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
                 {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a> */}
@@ -107,6 +108,14 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <footer className="flex items-end justify-end w-full cursor-pointer" role="btn">
+        <div className="flex items-end justify-end">
+          <Link href="https://www.linkedin.com/in/parakhjain23/" target="_blank" legacyBehavior={true}>
+            <a className="text-sm leading-6 text-gray-300" target="_blank">Developed by Parakh Jain</a>
+          </Link>
+        </div>
+      </footer>
+
     </main>
   );
 }
