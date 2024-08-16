@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const token = process.env.NEXT_CHATBOT_TOKEN
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdfaWQiOiI5NjE0IiwiY2hhdGJvdF9pZCI6IjY2YmYyNDllYWZlNTFiZGQ2MmFiZDc2OCIsInVzZXJfaWQiOiJwYXJha2gifQ.zBHGY-m6jlgtJ5qokxVFXOch63qmvID6a0E0CDFRmfc";
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>

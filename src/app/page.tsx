@@ -1,15 +1,21 @@
 'use client'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  let threadId = localStorage.getItem('threadId');
-  useEffect(()=>{
-    
-    if(localStorage.getItem('threadId') === null){
-      threadId = String(Math.floor(Math.random() * 10000) + 1);
-      localStorage.setItem('threadId', threadId);
+  const [threadId, setThreadId] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') { // Check if window is available
+      let storedThreadId = localStorage.getItem('threadId');
+      if (storedThreadId === null) {
+        const newThreadId = String(Math.floor(Math.random() * 10000) + 1);
+        localStorage.setItem('threadId', newThreadId);
+        setThreadId(newThreadId);
+      } else {
+        setThreadId(storedThreadId);
+      }
     }
-  },[threadId])
+  }, []);
 
   const handleChatbot = (e) => {
     e.preventDefault();
